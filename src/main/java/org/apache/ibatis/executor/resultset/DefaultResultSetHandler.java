@@ -516,7 +516,7 @@ public class DefaultResultSetHandler implements ResultSetHandler {
         foundValues = lazyLoader.size() > 0 || foundValues;
         rowValue = foundValues || configuration.isReturnInstanceForEmptyRow() ? rowValue : null;
       }
-      if (combinedKey != CacheKey.NULL_CACHE_KEY) {
+      if (!combinedKey.equals(CacheKey.NULL_CACHE_KEY)) {
         nestedResultObjects.put(combinedKey, rowValue);
       }
     }
