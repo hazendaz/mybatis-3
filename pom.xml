@@ -368,8 +368,8 @@
               <artifactSet>
                 <includes>
                   <include>org.mybatis:mybatis</include>
-                  <include>ognl:ognl</include>
-                  <include>org.javassist:javassist</include>
+                  <include>ognl:ognl</include> <!-- Why do we need to shade ognl? -->
+                  <include>org.javassist:javassist</include> <!-- Why do we need to shade javassist? -->
                 </includes>
               </artifactSet>
               <filters>
