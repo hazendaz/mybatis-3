@@ -32,6 +32,8 @@ class BaseCacheTest {
   @Test
   void shouldDemonstrateEqualsAndHashCodeForVariousCacheTypes() {
     PerpetualCache cache = new PerpetualCache("test_cache");
+    // TODO: These 5 are very poorly thought out. This works as they share same base class, they are not equal
+    // otherwise.
     assertEquals(cache, cache);
     assertEquals(cache, new SynchronizedCache(cache));
     assertEquals(cache, new SerializedCache(cache));
