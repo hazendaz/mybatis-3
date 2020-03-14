@@ -372,20 +372,9 @@
         </includes>
       </resource>
       <resource>
-        <directory>${project.build.sourceDirectory}</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
+        <directory>${project.build.resourceDirectory}</directory>
       </resource>
     </resources>
-    <testResources>
-      <testResource>
-        <directory>${project.build.testSourceDirectory}</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </testResource>
-    </testResources>
   </build>
 
   <profiles>
