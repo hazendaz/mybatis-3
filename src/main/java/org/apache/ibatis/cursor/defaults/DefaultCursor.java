@@ -144,7 +144,6 @@ public class DefaultCursor<T> implements Cursor<T> {
       throw new RuntimeException(e);
     }
 
-    T next = objectWrapperResultHandler.result;
     if (objectWrapperResultHandler.fetched) {
       indexWithRowBound++;
     }
@@ -153,6 +152,8 @@ public class DefaultCursor<T> implements Cursor<T> {
       close();
       status = CursorStatus.CONSUMED;
     }
+
+    T next = objectWrapperResultHandler.result;
     objectWrapperResultHandler.result = null;
 
     return next;
