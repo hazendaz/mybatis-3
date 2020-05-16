@@ -77,7 +77,8 @@ class CustomizationTest {
     props.setProperty("objectFactory:name", "customObjectFactory");
     props.setProperty("cache:name", "customCache");
 
-    Reader reader = Resources.getResourceAsReader("org/apache/ibatis/submitted/global_variables_defaults/mybatis-config-custom-separator.xml");
+    Reader reader = Resources.getResourceAsReader(
+        "org/apache/ibatis/submitted/global_variables_defaults/mybatis-config-custom-separator.xml");
     SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, props);
     Configuration configuration = factory.getConfiguration();
     configuration.addMapper(CustomDefaultValueSeparatorMapper.class);
