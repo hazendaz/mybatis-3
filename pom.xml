@@ -90,7 +90,7 @@
 
     <!-- OSGI Data -->
     <osgi.export>org.apache.ibatis.*;version=${project.version};-noimport:=true,org.apache.ibatis.javassist.util.proxy;version=${project.version};-noimport:=true</osgi.export>
-    <osgi.import>*;resolution:=optional</osgi.import>
+    <osgi.import>*;resolution:=optional,*</osgi.import>
     <osgi.dynamicImport>*</osgi.dynamicImport>
 
     <!-- Spotbugs Setup -->
