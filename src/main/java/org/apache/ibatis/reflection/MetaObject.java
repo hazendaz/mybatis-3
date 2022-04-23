@@ -130,8 +130,7 @@ public class MetaObject {
   }
 
   public MetaObject metaObjectForProperty(String name) {
-    Object value = getValue(name);
-    return MetaObject.forObject(value, objectFactory, objectWrapperFactory, reflectorFactory);
+    return MetaObject.forObject(getValue(name), objectFactory, objectWrapperFactory, reflectorFactory);
   }
 
   public ObjectWrapper getObjectWrapper() {
