@@ -20,7 +20,9 @@ import java.lang.reflect.Constructor;
 /**
  * @author Clinton Begin
  * @author Eduardo Macarron
+ * @deprecated Will be removed in mybatis 3.6
  */
+@Deprecated
 public final class LogFactory {
 
   /**
@@ -32,7 +34,6 @@ public final class LogFactory {
 
   static {
     tryImplementation(LogFactory::useSlf4jLogging);
-    tryImplementation(LogFactory::useCommonsLogging);
     tryImplementation(LogFactory::useLog4J2Logging);
     tryImplementation(LogFactory::useLog4JLogging);
     tryImplementation(LogFactory::useJdkLogging);
