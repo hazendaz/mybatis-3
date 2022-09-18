@@ -515,7 +515,10 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
                 指定 Mybatis 创建可延迟加载对象所用到的代理工具。
               </td>
               <td>
-                CGLIB （3.5.10 起废弃） | JAVASSIST
+                CGLIB （3.5.10 起废弃）
+              </td>
+              <td>
+                BYTEBUDDY (MyBatis 3.5.11 以上)
               </td>
               <td>
                 JAVASSIST （MyBatis 3.3 以上）
@@ -651,7 +654,7 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
   <setting name="returnInstanceForEmptyRow" value="false"/>
   <setting name="logPrefix" value="exampleLogPreFix_"/>
   <setting name="logImpl" value="SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING"/>
-  <setting name="proxyFactory" value="CGLIB | JAVASSIST"/>
+  <setting name="proxyFactory" value="CGLIB | BYTEBUDDY | JAVASSIST"/>
   <setting name="vfsImpl" value="org.mybatis.example.YourselfVfsImpl"/>
   <setting name="useActualParamName" value="true"/>
   <setting name="configurationFactory" value="org.mybatis.example.ConfigurationFactory"/>
