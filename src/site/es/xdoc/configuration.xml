@@ -496,7 +496,10 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
                 Permite especificar qué herramienta de generación de proxys se usará para crear los objetos con capacidad de carga lazy.
               </td>
               <td>
-                CGLIB (deprecated since 3.5.10) | JAVASSIST
+                CGLIB (deprecated since 3.5.10)
+              </td>
+              <td>
+                BYTEBUDDY (MyBatis 3.5.11 or above)
               </td>
               <td>
                 JAVASSIST (MyBatis 3.3 or above)
@@ -633,7 +636,7 @@ A continuación se muestra un ejemplo del elemento settings al completo:
   <setting name="returnInstanceForEmptyRow" value="false"/>
   <setting name="logPrefix" value="exampleLogPreFix_"/>
   <setting name="logImpl" value="SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING"/>
-  <setting name="proxyFactory" value="CGLIB | JAVASSIST"/>
+  <setting name="proxyFactory" value="CGLIB | BYTEBUDDY | JAVASSIST"/>
   <setting name="vfsImpl" value="org.mybatis.example.YourselfVfsImpl"/>
   <setting name="useActualParamName" value="true"/>
   <setting name="configurationFactory" value="org.mybatis.example.ConfigurationFactory"/>

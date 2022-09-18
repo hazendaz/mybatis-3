@@ -53,7 +53,7 @@ public abstract class AbstractEnhancedDeserializationProxy {
     this.reloadingProperty = false;
   }
 
-  public final Object invoke(Object enhanced, Method method, Object[] args) throws Throwable {
+  public Object invoke(Object enhanced, Method method, Object[] args) throws Throwable {
     final String methodName = method.getName();
     try {
       if (WRITE_REPLACE_METHOD.equals(methodName)) {

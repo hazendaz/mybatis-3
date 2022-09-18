@@ -508,7 +508,10 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
                 마이바티스가 지연로딩을 처리할 객체를 생성할 때 사용할 프록시 툴을 명시
               </td>
               <td>
-                CGLIB (deprecated since 3.5.10) | JAVASSIST
+                CGLIB (deprecated since 3.5.10)
+              </td>
+              <td>
+                BYTEBUDDY (마이바티스 3.5.11과 이상의 버전)
               </td>
               <td>
                 JAVASSIST (마이바티스 3.3과 이상의 버전)
@@ -639,7 +642,7 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
   <setting name="returnInstanceForEmptyRow" value="false"/>
   <setting name="logPrefix" value="exampleLogPreFix_"/>
   <setting name="logImpl" value="SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING"/>
-  <setting name="proxyFactory" value="CGLIB | JAVASSIST"/>
+  <setting name="proxyFactory" value="CGLIB | BYTEBUDDY | JAVASSIST"/>
   <setting name="vfsImpl" value="org.mybatis.example.YourselfVfsImpl"/>
   <setting name="useActualParamName" value="true"/>
   <setting name="configurationFactory" value="org.mybatis.example.ConfigurationFactory"/>

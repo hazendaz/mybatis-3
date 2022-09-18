@@ -523,7 +523,10 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
                 Lazy Loading（遅延読み込み）に対応したオブジェクトを生成する際に使用するプロクシツールを指定します。
               </td>
               <td>
-                CGLIB (3.5.10 以降非推奨) | JAVASSIST
+                CGLIB (3.5.10 以降非推奨)
+              </td>
+              <td>
+                BYTEBUDDY (MyBatis 3.5.11 以上)
               </td>
               <td>
                 JAVASSIST (MyBatis 3.3 以上)
@@ -658,7 +661,7 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environ
   <setting name="returnInstanceForEmptyRow" value="false"/>
   <setting name="logPrefix" value="exampleLogPreFix_"/>
   <setting name="logImpl" value="SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING"/>
-  <setting name="proxyFactory" value="CGLIB | JAVASSIST"/>
+  <setting name="proxyFactory" value="CGLIB | BYTEBUDDY | JAVASSIST"/>
   <setting name="vfsImpl" value="org.mybatis.example.YourselfVfsImpl"/>
   <setting name="useActualParamName" value="true"/>
   <setting name="configurationFactory" value="org.mybatis.example.ConfigurationFactory"/>
