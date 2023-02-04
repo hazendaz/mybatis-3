@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -20,15 +20,15 @@
 <mapper namespace="org.apache.ibatis.submitted.blobtest.BlobMapper">
   <resultMap type="org.apache.ibatis.submitted.blobtest.BlobRecord" id="blobRecordResult">
     <constructor>
-      <idArg column="id" javaType="_int"/>
-      <arg column="blob" javaType="_byte[]"/>
+      <idArg column="id" javaType="_int" />
+      <arg column="blob" javaType="_byte[]" />
     </constructor>
   </resultMap>
 
   <resultMap type="org.apache.ibatis.submitted.blobtest.BlobRecord" id="blobRecordResultWithBlobObjects">
     <constructor>
-      <idArg column="id" javaType="_int"/>
-      <arg column="blob" javaType="Byte[]"/>
+      <idArg column="id" javaType="_int" />
+      <arg column="blob" javaType="Byte[]" />
     </constructor>
   </resultMap>
 

@@ -22,16 +22,16 @@
 
 <mapper namespace="org.apache.ibatis.submitted.dynsql">
   <resultMap type="org.apache.ibatis.submitted.dynsql.NumericRow" id="numericRow">
-    <result column="id" property="id" jdbcType="INTEGER"/>
-    <result column="tinynumber" property="tinynumber" jdbcType="TINYINT"/>
-    <result column="smallnumber" property="smallnumber" jdbcType="SMALLINT"/>
-    <result column="longinteger" property="longinteger" jdbcType="BIGINT"/>
-    <result column="biginteger" property="biginteger" jdbcType="BIGINT"/>
-    <result column="numericnumber" property="numericnumber" jdbcType="NUMERIC"/>
-    <result column="decimalnumber" property="decimalnumber" jdbcType="DECIMAL"/>
-    <result column="realnumber" property="realnumber" jdbcType="REAL"/>
-    <result column="floatnumber" property="floatnumber" jdbcType="FLOAT"/>
-    <result column="doublenumber" property="doublenumber" jdbcType="DOUBLE"/>
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="tinynumber" property="tinynumber" jdbcType="TINYINT" />
+    <result column="smallnumber" property="smallnumber" jdbcType="SMALLINT" />
+    <result column="longinteger" property="longinteger" jdbcType="BIGINT" />
+    <result column="biginteger" property="biginteger" jdbcType="BIGINT" />
+    <result column="numericnumber" property="numericnumber" jdbcType="NUMERIC" />
+    <result column="decimalnumber" property="decimalnumber" jdbcType="DECIMAL" />
+    <result column="realnumber" property="realnumber" jdbcType="REAL" />
+    <result column="floatnumber" property="floatnumber" jdbcType="FLOAT" />
+    <result column="doublenumber" property="doublenumber" jdbcType="DOUBLE" />
   </resultMap>
 
   <select id="select" parameterType="org.apache.ibatis.submitted.dynsql.Parameter" resultType="map">

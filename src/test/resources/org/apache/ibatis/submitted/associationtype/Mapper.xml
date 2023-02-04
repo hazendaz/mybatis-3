@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,20 +22,18 @@
 
 <mapper namespace="org.apache.ibatis.submitted.associationtype.Mapper">
 
- <resultMap id="sampleHashResult" type="hashmap">
+  <resultMap id="sampleHashResult" type="hashmap">
     <result property="f1" column="f1" />
     <result property="f2" column="f2" />
-    <association property="a1" javaType="java.lang.String"
-        column="{param1=f1}" select="associationTest" />
-    <association property="a2" javaType="java.lang.String"
-        column="{param1=f1}" select="associationTest" />
-    </resultMap>
+    <association property="a1" javaType="java.lang.String" column="{param1=f1}" select="associationTest" />
+    <association property="a2" javaType="java.lang.String" column="{param1=f1}" select="associationTest" />
+  </resultMap>
 
-    <select id="getUser" resultMap="sampleHashResult">
+  <select id="getUser" resultMap="sampleHashResult">
         SELECT id as f1, name as f2 from users
     </select>
 
-    <select id="associationTest" resultType="java.lang.String">
+  <select id="associationTest" resultType="java.lang.String">
         select id from users
     </select>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,14 +22,14 @@
 
 <mapper namespace="org.apache.ibatis.submitted.enumtypehandler_on_map.PersonMapper">
 
-    <resultMap id="personMap" type="Person">
-        <id property="id" column="Person_id"/>
-        <result property="firstName" column="Person_firstName"/>
-        <result property="lastName" column="Person_lastName"/>
-    </resultMap>
+  <resultMap id="personMap" type="Person">
+    <id property="id" column="Person_id" />
+    <result property="firstName" column="Person_firstName" />
+    <result property="lastName" column="Person_lastName" />
+  </resultMap>
 
 
-    <sql id="columns">
+  <sql id="columns">
         Person.id AS Person_id,
         Person.firstName AS Person_firstName,
         Person.lastName AS Person_lastName,
@@ -37,13 +37,14 @@
     </sql>
 
 
-    <select id="getByType" resultMap="personMap" parameterType="map">
-        SELECT <include refid="columns"/>
+  <select id="getByType" resultMap="personMap" parameterType="map">
+        SELECT <include refid="columns" />
         FROM Person
         WHERE personType = #{type,jdbcType=VARCHAR}
     </select>
-    <select id="getByTypeNoParam" resultMap="personMap" parameterType="org.apache.ibatis.submitted.enumtypehandler_on_map.PersonMapper$TypeName">
-        SELECT <include refid="columns"/>
+  <select id="getByTypeNoParam" resultMap="personMap"
+    parameterType="org.apache.ibatis.submitted.enumtypehandler_on_map.PersonMapper$TypeName">
+        SELECT <include refid="columns" />
         FROM Person
         WHERE personType = #{type,jdbcType=VARCHAR}
     </select>

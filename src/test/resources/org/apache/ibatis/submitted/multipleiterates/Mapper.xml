@@ -30,26 +30,22 @@
     insert into users
     (id,
     name,
-    <foreach item="attr" index="index" collection="firstAttr"
-      separator=",">
+    <foreach item="attr" index="index" collection="firstAttr" separator=",">
       first_attr_${index + 1}
     </foreach>
     ,
-    <foreach item="attr" index="index" collection="secondAttr"
-      separator=",">
+    <foreach item="attr" index="index" collection="secondAttr" separator=",">
       second_attr_${index + 1}
     </foreach>
     )
     values(
     1,
     'User1',
-    <foreach item="attr" index="index" collection="firstAttr"
-      separator=",">
+    <foreach item="attr" index="index" collection="firstAttr" separator=",">
       #{attr}
     </foreach>
     ,
-    <foreach item="attr" index="index" collection="secondAttr"
-      separator=",">
+    <foreach item="attr" index="index" collection="secondAttr" separator=",">
       #{attr}
     </foreach>
     )
