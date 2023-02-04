@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -23,18 +23,18 @@
 <mapper namespace="org.apache.ibatis.submitted.associationtest.Mapper">
 
   <resultMap type="org.apache.ibatis.submitted.associationtest.Car" id="carResult">
-    <id column="carid" property="id"/>
-    <result column="cartype" property="type"/>
-    <association property="engine" resultMap="engineResult"/>
+    <id column="carid" property="id" />
+    <result column="cartype" property="type" />
+    <association property="engine" resultMap="engineResult" />
     <!-- the bogus 'column' below is to assert gh-1590 -->
     <association property="brakes" resultMap="brakesResult" column="{carid=carid}" />
   </resultMap>
   <resultMap type="org.apache.ibatis.submitted.associationtest.Engine" id="engineResult">
-    <result column="enginetype" property="type"/>
-    <result column="enginecylinders" property="cylinders"/>
+    <result column="enginetype" property="type" />
+    <result column="enginecylinders" property="cylinders" />
   </resultMap>
   <resultMap type="org.apache.ibatis.submitted.associationtest.Brakes" id="brakesResult">
-    <result column="brakesType" property="type"/>
+    <result column="brakesType" property="type" />
   </resultMap>
 
   <select id="getCars" resultMap="carResult">
@@ -46,14 +46,14 @@
   </select>
 
   <resultMap type="org.apache.ibatis.submitted.associationtest.Car" id="carResultTypeDetect">
-    <id column="carid" property="id"/>
-    <result column="cartype" property="type"/>
+    <id column="carid" property="id" />
+    <result column="cartype" property="type" />
     <association property="engine">
-      <result column="enginetype" property="type"/>
-      <result column="enginecylinders" property="cylinders"/>
+      <result column="enginetype" property="type" />
+      <result column="enginecylinders" property="cylinders" />
     </association>
     <association property="brakes">
-      <result column="brakesType" property="type"/>
+      <result column="brakesType" property="type" />
     </association>
   </resultMap>
 

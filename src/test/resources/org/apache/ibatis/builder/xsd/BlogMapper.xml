@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -17,28 +17,27 @@
 
 -->
 <mapper namespace="org.apache.ibatis.domain.blog.mappers.BlogMapper"
-        xmlns="http://mybatis.org/schema/mybatis-mapper"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://mybatis.org/schema/mybatis-mapper https://mybatis.org/schema/mybatis-mapper.xsd">
+  xmlns="http://mybatis.org/schema/mybatis-mapper" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://mybatis.org/schema/mybatis-mapper https://mybatis.org/schema/mybatis-mapper.xsd">
 
   <resultMap id="earlyNestedDiscriminatorPost" type="org.apache.ibatis.domain.blog.Post">
-    <id property="id" column="post_id"/>
-    <result property="subject" column="post_subject"/>
+    <id property="id" column="post_id" />
+    <result property="subject" column="post_subject" />
     <discriminator javaType="int" column="draft">
       <case value="1">
-        <association property="author" resultMap="joinedAuthor"/>
-        <collection property="comments" resultMap="joinedComment"/>
-        <collection property="tags" resultMap="joinedTag"/>
+        <association property="author" resultMap="joinedAuthor" />
+        <collection property="comments" resultMap="joinedComment" />
+        <collection property="tags" resultMap="joinedTag" />
       </case>
     </discriminator>
   </resultMap>
 
   <resultMap id="blogWithPosts" type="Blog">
-    <id property="id" column="id"/>
-    <result property="title" column="title"/>
+    <id property="id" column="id" />
+    <result property="title" column="title" />
     <association property="author" column="author_id"
-                 select="org.apache.ibatis.domain.blog.mappers.AuthorMapper.selectAuthorWithInlineParams"/>
-    <collection property="posts" column="id" select="selectPostsForBlog"/>
+      select="org.apache.ibatis.domain.blog.mappers.AuthorMapper.selectAuthorWithInlineParams" />
+    <collection property="posts" column="id" select="selectPostsForBlog" />
   </resultMap>
 
   <select id="selectBlogWithPostsUsingSubSelect" parameterType="int" resultMap="blogWithPosts">
@@ -54,10 +53,11 @@
   </select>
 
   <resultMap id="blogWithPostsLazy" type="Blog">
-    <id property="id" column="id"/>
-    <result property="title" column="title"/>
-    <association property="author" column="author_id" select="org.apache.ibatis.domain.blog.mappers.AuthorMapper.selectAuthorWithInlineParams" fetchType="lazy"/>
-    <collection property="posts" column="id" select="selectPostsForBlog" fetchType="lazy"/>
+    <id property="id" column="id" />
+    <result property="title" column="title" />
+    <association property="author" column="author_id"
+      select="org.apache.ibatis.domain.blog.mappers.AuthorMapper.selectAuthorWithInlineParams" fetchType="lazy" />
+    <collection property="posts" column="id" select="selectPostsForBlog" fetchType="lazy" />
   </resultMap>
 
   <select id="selectBlogWithPostsUsingSubSelectLazily" parameterType="int" resultMap="blogWithPostsLazy">
@@ -65,51 +65,51 @@
   </select>
 
   <resultMap id="joinedAuthor" type="org.apache.ibatis.domain.blog.Author">
-    <id property="id" column="author_id"/>
-    <result property="username" column="author_username"/>
-    <result property="password" column="author_password"/>
-    <result property="email" column="author_email"/>
-    <result property="bio" column="author_bio"/>
-    <result property="favouriteSection" column="author_favourite_section"/>
+    <id property="id" column="author_id" />
+    <result property="username" column="author_username" />
+    <result property="password" column="author_password" />
+    <result property="email" column="author_email" />
+    <result property="bio" column="author_bio" />
+    <result property="favouriteSection" column="author_favourite_section" />
   </resultMap>
 
   <resultMap id="joinedComment" type="org.apache.ibatis.domain.blog.Comment">
-    <id property="id" column="comment_id"/>
+    <id property="id" column="comment_id" />
     <!--<association property="post" column="post_id" resultMap="joinedPost"/>-->
   </resultMap>
 
   <resultMap id="joinedTag" type="org.apache.ibatis.domain.blog.Tag">
-    <id property="id" column="tag_id"/>
+    <id property="id" column="tag_id" />
   </resultMap>
 
   <resultMap id="joinedPost" type="org.apache.ibatis.domain.blog.Post">
-    <id property="id" column="post_id"/>
-    <result property="subject" column="post_subject"/>
-    <association property="author" resultMap="joinedAuthor"/>
-    <collection property="comments" resultMap="joinedComment"/>
-    <collection property="tags" resultMap="joinedTag"/>
+    <id property="id" column="post_id" />
+    <result property="subject" column="post_subject" />
+    <association property="author" resultMap="joinedAuthor" />
+    <collection property="comments" resultMap="joinedComment" />
+    <collection property="tags" resultMap="joinedTag" />
     <discriminator javaType="int" column="draft">
-      <case value="1" resultMap="draftPost"/>
+      <case value="1" resultMap="draftPost" />
     </discriminator>
   </resultMap>
 
-  <resultMap id="draftPost" type="org.apache.ibatis.domain.blog.DraftPost" extends="joinedPost"/>
+  <resultMap id="draftPost" type="org.apache.ibatis.domain.blog.DraftPost" extends="joinedPost" />
 
   <resultMap id="blogJoinedWithPostsAndAuthor" type="Blog">
-    <id property="id" column="blog_id"/>
-    <result property="title" column="blog_title"/>
-    <association property="author" resultMap="joinedAuthor"/>
-    <collection property="posts" resultMap="joinedPost"/>
+    <id property="id" column="blog_id" />
+    <result property="title" column="blog_title" />
+    <association property="author" resultMap="joinedAuthor" />
+    <collection property="posts" resultMap="joinedPost" />
   </resultMap>
 
   <resultMap id="lateNestedDiscriminatorPost" type="org.apache.ibatis.domain.blog.Post">
-    <id property="id" column="post_id"/>
-    <result property="subject" column="post_subject"/>
+    <id property="id" column="post_id" />
+    <result property="subject" column="post_subject" />
     <discriminator javaType="int" column="draft">
       <case value="1">
-        <association property="author" resultMap="joinedAuthor"/>
-        <collection property="comments" resultMap="joinedComment"/>
-        <collection property="tags" resultMap="joinedTag"/>
+        <association property="author" resultMap="joinedAuthor" />
+        <collection property="comments" resultMap="joinedComment" />
+        <collection property="tags" resultMap="joinedTag" />
       </case>
     </discriminator>
   </resultMap>

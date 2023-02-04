@@ -22,9 +22,11 @@
 
 <mapper namespace="org.apache.ibatis.submitted.inline_association_with_dot.ElementMapperUsingInline">
 
-  <resultMap id="selectElementValueInContainerUsingInline" type="org.apache.ibatis.submitted.inline_association_with_dot.Element">
-    <association property="element.element" javaType="org.apache.ibatis.submitted.inline_association_with_dot.Element">
-      <result property="value" column="VALUECOLUMN"/>
+  <resultMap id="selectElementValueInContainerUsingInline"
+    type="org.apache.ibatis.submitted.inline_association_with_dot.Element">
+    <association property="element.element"
+      javaType="org.apache.ibatis.submitted.inline_association_with_dot.Element">
+      <result property="value" column="VALUECOLUMN" />
     </association>
   </resultMap>
 

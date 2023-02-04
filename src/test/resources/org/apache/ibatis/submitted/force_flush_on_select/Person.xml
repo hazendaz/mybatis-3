@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,40 +22,40 @@
 
 <mapper namespace="org.apache.ibatis.submitted.force_flush_on_select.PersonMapper">
 
-    <!-- One hour cache -->
-    <cache flushInterval="3600000"/>
+  <!-- One hour cache -->
+  <cache flushInterval="3600000" />
 
-    <resultMap id="personMap" type="Person">
-        <id property="id" column="id"/>
-        <result property="firstName" column="firstName"/>
-        <result property="lastName" column="lastName"/>
-    </resultMap>
+  <resultMap id="personMap" type="Person">
+    <id property="id" column="id" />
+    <result property="firstName" column="firstName" />
+    <result property="lastName" column="lastName" />
+  </resultMap>
 
-    <select id="selectByIdFlush" resultMap="personMap" parameterType="int" flushCache="true">
+  <select id="selectByIdFlush" resultMap="personMap" parameterType="int" flushCache="true">
         SELECT id, firstName, lastName
         FROM person
         WHERE id = #{id}
     </select>
 
-    <select id="selectByIdNoFlush" resultMap="personMap" parameterType="int">
+  <select id="selectByIdNoFlush" resultMap="personMap" parameterType="int">
         SELECT id, firstName, lastName
         FROM person
         WHERE id = #{id}
     </select>
 
-    <select id="selectAllFlush" resultMap="personMap" flushCache="true">
+  <select id="selectAllFlush" resultMap="personMap" flushCache="true">
         SELECT id, firstName, lastName
         FROM person
         ORDER BY id
     </select>
 
-    <select id="selectAllNoFlush" resultMap="personMap">
+  <select id="selectAllNoFlush" resultMap="personMap">
         SELECT id, firstName, lastName
         FROM person
         ORDER BY id
     </select>
 
-    <update id="update" parameterType="org.apache.ibatis.submitted.force_flush_on_select.Person">
+  <update id="update" parameterType="org.apache.ibatis.submitted.force_flush_on_select.Person">
         UPDATE person set firstname = #{firstName} where id = #{id}
     </update>
 

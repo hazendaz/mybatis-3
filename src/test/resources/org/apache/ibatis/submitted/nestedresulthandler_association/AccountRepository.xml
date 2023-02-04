@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -18,18 +18,19 @@
 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.apache.ibatis.submitted.nestedresulthandler_association.AccountRepository">
-    <resultMap id="resultMapAccount" type="org.apache.ibatis.submitted.nestedresulthandler_association.Account">
-        <id property="accountUuid" column="account_uuid" />
-        <result property="accountName" column="account_name" />
-        <result property="birthDate" column="birth_date" />
-        <association property="address" javaType="org.apache.ibatis.submitted.nestedresulthandler_association.AccountAddress">
-            <id property="accountUuid" column="account_uuid" />
-            <result property="zipCode" column="zip_code" />
-            <result property="address" column="address" />
-        </association>
-    </resultMap>
-    <select id="collectPageByBirthMonth" resultMap="resultMapAccount" resultOrdered="true">
-        <![CDATA[
+  <resultMap id="resultMapAccount" type="org.apache.ibatis.submitted.nestedresulthandler_association.Account">
+    <id property="accountUuid" column="account_uuid" />
+    <result property="accountName" column="account_name" />
+    <result property="birthDate" column="birth_date" />
+    <association property="address"
+      javaType="org.apache.ibatis.submitted.nestedresulthandler_association.AccountAddress">
+      <id property="accountUuid" column="account_uuid" />
+      <result property="zipCode" column="zip_code" />
+      <result property="address" column="address" />
+    </association>
+  </resultMap>
+  <select id="collectPageByBirthMonth" resultMap="resultMapAccount" resultOrdered="true">
+    <![CDATA[
         SELECT
           a.account_uuid
           ,a.account_name
@@ -47,4 +48,4 @@
           a.account_uuid
         ]]>
     </select>
-</mapper>
+  </mapper>

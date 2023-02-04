@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -23,10 +23,10 @@
 <mapper namespace="User">
 
   <resultMap type="UserAlias" id="UserResult">
-    <id column="id" jdbcType="INTEGER" property="id"/>
-    <result column="username" jdbcType="VARCHAR" property="username"/>
-    <result column="password" jdbcType="VARCHAR" property="password.encrypted"/>
-    <result column="administrator" jdbcType="BOOLEAN" property="administrator"/>
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password.encrypted" />
+    <result column="administrator" jdbcType="BOOLEAN" property="administrator" />
   </resultMap>
 
   <select id="find" parameterType="long" resultMap="UserResult">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,62 +22,62 @@
 
 <mapper namespace="org.apache.ibatis.submitted.multiple_discriminator.PersonMapper">
 
-    <resultMap id="personMap2" type="Person">
-        <id property="id" column="id"/>
-        <result property="firstName" column="firstName"/>
-        <result property="lastName" column="lastName"/>
-        <discriminator column="personType" javaType="String">
-            <case value="EmployeeType">
-                <discriminator column="employeeType" javaType="String">
-                    <case value="DirectorType" resultMap="directorMap"/>
-                </discriminator>
-            </case>
-        </discriminator>
-    </resultMap>
-    <resultMap id="personMap" type="Person">
-        <id property="id" column="id"/>
-        <result property="firstName" column="firstName"/>
-        <result property="lastName" column="lastName"/>
-        <discriminator column="personType" javaType="String">
-            <case value="EmployeeType" resultMap="employeeMap"/>
-        </discriminator>
-    </resultMap>
-    <resultMap id="employeeMap" type="Employee" extends="personMap">
-        <result property="jobTitle" column="jobTitle"/>
+  <resultMap id="personMap2" type="Person">
+    <id property="id" column="id" />
+    <result property="firstName" column="firstName" />
+    <result property="lastName" column="lastName" />
+    <discriminator column="personType" javaType="String">
+      <case value="EmployeeType">
         <discriminator column="employeeType" javaType="String">
-            <case value="DirectorType" resultMap="directorMap"/>
+          <case value="DirectorType" resultMap="directorMap" />
         </discriminator>
-    </resultMap>
-    <resultMap id="directorMap" type="Director" extends="employeeMap">
-        <result property="department" column="department"/>
-    </resultMap>
-    <resultMap id="personMapLoop" type="Person">
-        <id property="id" column="id"/>
-        <result property="firstName" column="firstName"/>
-        <result property="lastName" column="lastName"/>
-        <discriminator column="personType" javaType="String">
-            <case value="EmployeeType" resultMap="employeeMapLoop"/>
-        </discriminator>
-    </resultMap>
-    <resultMap id="employeeMapLoop" type="Employee">
-        <result property="jobTitle" column="jobTitle"/>
-        <discriminator column="employeeType" javaType="String">
-            <case value="PersonType" resultMap="personMapLoop"/>
-        </discriminator>
-    </resultMap>
+      </case>
+    </discriminator>
+  </resultMap>
+  <resultMap id="personMap" type="Person">
+    <id property="id" column="id" />
+    <result property="firstName" column="firstName" />
+    <result property="lastName" column="lastName" />
+    <discriminator column="personType" javaType="String">
+      <case value="EmployeeType" resultMap="employeeMap" />
+    </discriminator>
+  </resultMap>
+  <resultMap id="employeeMap" type="Employee" extends="personMap">
+    <result property="jobTitle" column="jobTitle" />
+    <discriminator column="employeeType" javaType="String">
+      <case value="DirectorType" resultMap="directorMap" />
+    </discriminator>
+  </resultMap>
+  <resultMap id="directorMap" type="Director" extends="employeeMap">
+    <result property="department" column="department" />
+  </resultMap>
+  <resultMap id="personMapLoop" type="Person">
+    <id property="id" column="id" />
+    <result property="firstName" column="firstName" />
+    <result property="lastName" column="lastName" />
+    <discriminator column="personType" javaType="String">
+      <case value="EmployeeType" resultMap="employeeMapLoop" />
+    </discriminator>
+  </resultMap>
+  <resultMap id="employeeMapLoop" type="Employee">
+    <result property="jobTitle" column="jobTitle" />
+    <discriminator column="employeeType" javaType="String">
+      <case value="PersonType" resultMap="personMapLoop" />
+    </discriminator>
+  </resultMap>
 
 
-    <select id="get" resultMap="personMap" parameterType="long">
+  <select id="get" resultMap="personMap" parameterType="long">
         SELECT id, firstName, lastName, jobTitle, department, personType, employeeType
         FROM Person
         WHERE id = #{id}
     </select>
-    <select id="get2" resultMap="personMap2" parameterType="long">
+  <select id="get2" resultMap="personMap2" parameterType="long">
         SELECT id, firstName, lastName, jobTitle, department, personType, employeeType
         FROM Person
         WHERE id = #{id}
     </select>
-    <select id="getLoop" resultMap="personMapLoop">
+  <select id="getLoop" resultMap="personMapLoop">
         SELECT id, firstName, lastName, jobTitle, department, personType, employeeType
         FROM Person
         WHERE id = 3
