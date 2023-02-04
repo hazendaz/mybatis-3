@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,43 +22,39 @@
 
 <mapper namespace="org.apache.ibatis.submitted.custom_collection_handling.PersonMapper">
 
-    <resultMap id="personRM" type="org.apache.ibatis.submitted.custom_collection_handling.Person">
-        <id property="id" column="id" />
-        <result property="name" column="name" />
-        <collection
-            property="contacts"
-            ofType="org.apache.ibatis.submitted.custom_collection_handling.Contact"
-            javaType="org.apache.ibatis.submitted.custom_collection_handling.CustomCollection">
-            <id property="id" column="c_id" />
-            <result property="address" column="address" />
-            <result property="phone" column="phone" />
-        </collection>
-    </resultMap>
+  <resultMap id="personRM" type="org.apache.ibatis.submitted.custom_collection_handling.Person">
+    <id property="id" column="id" />
+    <result property="name" column="name" />
+    <collection property="contacts" ofType="org.apache.ibatis.submitted.custom_collection_handling.Contact"
+      javaType="org.apache.ibatis.submitted.custom_collection_handling.CustomCollection">
+      <id property="id" column="c_id" />
+      <result property="address" column="address" />
+      <result property="phone" column="phone" />
+    </collection>
+  </resultMap>
 
-    <resultMap id="personRM2" type="org.apache.ibatis.submitted.custom_collection_handling.Person">
-        <id property="id" column="id" />
-        <result property="name" column="name" />
-        <collection
-            property="contacts"
-            ofType="org.apache.ibatis.submitted.custom_collection_handling.Contact"
-            javaType="org.apache.ibatis.submitted.custom_collection_handling.CustomCollection"
-            column="id"
-            select="findContacts" />
-    </resultMap>
+  <resultMap id="personRM2" type="org.apache.ibatis.submitted.custom_collection_handling.Person">
+    <id property="id" column="id" />
+    <result property="name" column="name" />
+    <collection property="contacts" ofType="org.apache.ibatis.submitted.custom_collection_handling.Contact"
+      javaType="org.apache.ibatis.submitted.custom_collection_handling.CustomCollection" column="id"
+      select="findContacts" />
+  </resultMap>
 
-    <select id="findWithResultMap" resultMap="personRM">
+  <select id="findWithResultMap" resultMap="personRM">
         select p.id, p.name, c.address, c.phone, c.id as c_id
         from person p left join contact c on c.person_id = p.id
         order by p.id, c.address
     </select>
 
-    <select id="findWithSelect" resultMap="personRM2">
+  <select id="findWithSelect" resultMap="personRM2">
         select p.id, p.name
         from person p
         order by p.id
     </select>
 
-    <select id="findContacts" parameterType="int" resultType="org.apache.ibatis.submitted.custom_collection_handling.Contact">
+  <select id="findContacts" parameterType="int"
+    resultType="org.apache.ibatis.submitted.custom_collection_handling.Contact">
         select c.id, c.address, c.phone
         from contact c
         where c.person_id = #{id}

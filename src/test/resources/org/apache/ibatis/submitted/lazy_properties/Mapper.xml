@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,20 +22,15 @@
 
 <mapper namespace="org.apache.ibatis.submitted.lazy_properties.Mapper">
 
-  <resultMap type="org.apache.ibatis.submitted.lazy_properties.User"
-    id="user">
+  <resultMap type="org.apache.ibatis.submitted.lazy_properties.User" id="user">
     <id property="id" column="id" />
     <result property="name" column="name" />
   </resultMap>
 
-  <resultMap type="org.apache.ibatis.submitted.lazy_properties.User"
-    id="userWithLazyProperties" extends="user">
-    <association property="lazy1" column="id" select="getLazy1"
-      fetchType="lazy" />
-    <association property="lazy2" column="id" select="getLazy2"
-      fetchType="lazy" />
-    <collection property="lazy3" column="id" select="getLazy3"
-      fetchType="lazy" />
+  <resultMap type="org.apache.ibatis.submitted.lazy_properties.User" id="userWithLazyProperties" extends="user">
+    <association property="lazy1" column="id" select="getLazy1" fetchType="lazy" />
+    <association property="lazy2" column="id" select="getLazy2" fetchType="lazy" />
+    <collection property="lazy3" column="id" select="getLazy3" fetchType="lazy" />
   </resultMap>
 
   <select id="getUser" resultMap="userWithLazyProperties">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,14 +22,14 @@
 
 <mapper namespace="org.apache.ibatis.submitted.lazy_immutable.ImmutablePOJOMapper">
 
-    <resultMap id="result" type="ImmutablePOJO">
-        <constructor>
-            <idArg column="id" javaType="int" />
-            <arg column="description" javaType="string" />
-        </constructor>
-    </resultMap>
+  <resultMap id="result" type="ImmutablePOJO">
+    <constructor>
+      <idArg column="id" javaType="int" />
+      <arg column="description" javaType="string" />
+    </constructor>
+  </resultMap>
 
-    <select id="getImmutablePOJO" parameterType="int" resultMap="result">
+  <select id="getImmutablePOJO" parameterType="int" resultMap="result">
         SELECT
             i.id            AS id,
             i.description   AS description

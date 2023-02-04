@@ -22,20 +22,20 @@
 <mapper namespace="org.apache.ibatis.submitted.association_nested.FolderMapper">
 
   <resultMap id="folderResultMap" type="org.apache.ibatis.submitted.association_nested.FolderFlatTree">
-    <id column="id"/>
-    <id column="lvl1_id"/>
-    <id column="lvl2_id"/>
+    <id column="id" />
+    <id column="lvl1_id" />
+    <id column="lvl2_id" />
     <association property="root" javaType="org.apache.ibatis.submitted.association_nested.Folder">
-      <result property="id" column="id"/>
-      <result property="name" column="name"/>
+      <result property="id" column="id" />
+      <result property="name" column="name" />
     </association>
     <association property="level1" javaType="org.apache.ibatis.submitted.association_nested.Folder">
-      <result property="id" column="lvl1_id"/>
-      <result property="name" column="lvl1_name"/>
+      <result property="id" column="lvl1_id" />
+      <result property="name" column="lvl1_name" />
     </association>
     <association property="level2" javaType="org.apache.ibatis.submitted.association_nested.Folder">
-      <result property="id" column="lvl2_id"/>
-      <result property="name" column="lvl2_name"/>
+      <result property="id" column="lvl2_id" />
+      <result property="name" column="lvl2_name" />
     </association>
   </resultMap>
 

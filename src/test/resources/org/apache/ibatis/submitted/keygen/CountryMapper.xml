@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -27,8 +27,7 @@
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertNamedList" useGeneratedKeys="true"
-    keyProperty="id">
+  <insert id="insertNamedList" useGeneratedKeys="true" keyProperty="id">
     insert into country (countryname,countrycode)
     values
     <foreach collection="countries" separator="," item="country">
@@ -63,56 +62,49 @@
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertListAndSomeId" useGeneratedKeys="true"
-    keyProperty="id">
+  <insert id="insertListAndSomeId" useGeneratedKeys="true" keyProperty="id">
     insert into country (countryname,countrycode)
     values
     <foreach collection="list" separator="," item="country">
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertSetAndSomeId" useGeneratedKeys="true"
-    keyProperty="id">
+  <insert id="insertSetAndSomeId" useGeneratedKeys="true" keyProperty="id">
     insert into country (countryname,countrycode)
     values
     <foreach collection="collection" separator="," item="country">
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertArrayAndSomeId" useGeneratedKeys="true"
-    keyProperty="id">
+  <insert id="insertArrayAndSomeId" useGeneratedKeys="true" keyProperty="id">
     insert into country (countryname,countrycode)
     values
     <foreach collection="array" separator="," item="country">
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertList_MultiParams" useGeneratedKeys="true"
-    keyProperty="countries.id">
+  <insert id="insertList_MultiParams" useGeneratedKeys="true" keyProperty="countries.id">
     insert into country (countryname,countrycode)
     values
     <foreach collection="countries" separator="," item="country">
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertSet_MultiParams" useGeneratedKeys="true"
-    keyProperty="countries.id">
+  <insert id="insertSet_MultiParams" useGeneratedKeys="true" keyProperty="countries.id">
     insert into country (countryname,countrycode)
     values
     <foreach collection="countries" separator="," item="country">
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertArray_MultiParams" useGeneratedKeys="true"
-    keyProperty="countries.id">
+  <insert id="insertArray_MultiParams" useGeneratedKeys="true" keyProperty="countries.id">
     insert into country (countryname,countrycode)
     values
     <foreach collection="countries" separator="," item="country">
       (#{country.countryname},#{country.countrycode})
     </foreach>
   </insert>
-  <insert id="insertUndefineKeyProperty" useGeneratedKeys="true"
-    keyProperty="country_id">
+  <insert id="insertUndefineKeyProperty" useGeneratedKeys="true" keyProperty="country_id">
     insert into country (countryname,countrycode) values
     (#{countryname},#{countrycode})
   </insert>

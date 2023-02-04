@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,60 +22,64 @@
 
 <mapper namespace="">
 
-    <resultMap id="personMap" type="Person">
-        <id property="id" column="id"/>
-        <result property="firstName" column="firstName"/>
-        <result property="lastName" column="lastName"/>
-    </resultMap>
+  <resultMap id="personMap" type="Person">
+    <id property="id" column="id" />
+    <result property="firstName" column="firstName" />
+    <result property="lastName" column="lastName" />
+  </resultMap>
 
 
-    <select id="selectAllByType" resultMap="personMap" parameterType="org.apache.ibatis.submitted.ognl_enum.Person$Type">
+  <select id="selectAllByType" resultMap="personMap"
+    parameterType="org.apache.ibatis.submitted.ognl_enum.Person$Type">
         SELECT id, firstName, lastName, personType
         FROM person
         <where>
-            <if test="_parameter != null and _parameter.toString() == 'EMPLOYEE'">
+      <if test="_parameter != null and _parameter.toString() == 'EMPLOYEE'">
                 AND personType = #{type}
             </if>
-            <if test="_parameter != null and _parameter.toString() == 'DIRECTOR'">
+      <if test="_parameter != null and _parameter.toString() == 'DIRECTOR'">
                 AND personType = #{type}
             </if>
-        </where>
-    </select>
-    <select id="selectAllByTypeNameAttribute" resultMap="personMap" parameterType="org.apache.ibatis.submitted.ognl_enum.Person$Type">
+    </where>
+  </select>
+  <select id="selectAllByTypeNameAttribute" resultMap="personMap"
+    parameterType="org.apache.ibatis.submitted.ognl_enum.Person$Type">
         SELECT id, firstName, lastName, personType
         FROM person
         <where>
-            <if test="name == 'EMPLOYEE'">
+      <if test="name == 'EMPLOYEE'">
                 AND personType = #{type}
             </if>
-            <if test="name == 'DIRECTOR'">
+      <if test="name == 'DIRECTOR'">
                 AND personType = #{type}
             </if>
-        </where>
-    </select>
+    </where>
+  </select>
 
-    <select id="selectAllByTypeWithInterface" resultMap="personMap" parameterType="org.apache.ibatis.submitted.ognl_enum.PersonMapper$PersonType">
+  <select id="selectAllByTypeWithInterface" resultMap="personMap"
+    parameterType="org.apache.ibatis.submitted.ognl_enum.PersonMapper$PersonType">
         SELECT id, firstName, lastName, personType
         FROM person
         <where>
-            <if test="type.toString() == 'EMPLOYEE'">
+      <if test="type.toString() == 'EMPLOYEE'">
                 AND personType = #{type}
             </if>
-            <if test="type.toString() == 'DIRECTOR'">
+      <if test="type.toString() == 'DIRECTOR'">
                 AND personType = #{type}
             </if>
-        </where>
-    </select>
-    <select id="selectAllByTypeNameAttributeWithInterface" resultMap="personMap" parameterType="org.apache.ibatis.submitted.ognl_enum.PersonMapper$PersonType">
+    </where>
+  </select>
+  <select id="selectAllByTypeNameAttributeWithInterface" resultMap="personMap"
+    parameterType="org.apache.ibatis.submitted.ognl_enum.PersonMapper$PersonType">
         SELECT id, firstName, lastName, personType
         FROM person
         <where>
-            <if test="type.toString() == 'EMPLOYEE'">
+      <if test="type.toString() == 'EMPLOYEE'">
                 AND personType = #{type}
             </if>
-            <if test="type.toString() == 'DIRECTOR'">
+      <if test="type.toString() == 'DIRECTOR'">
                 AND personType = #{type}
             </if>
-        </where>
-    </select>
+    </where>
+  </select>
 </mapper>

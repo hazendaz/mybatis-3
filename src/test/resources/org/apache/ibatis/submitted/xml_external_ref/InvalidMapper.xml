@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@
        limitations under the License.
 
 -->
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.apache.ibatis.submitted.xml_external_ref.InvalidMapper">
+  <mapper namespace="org.apache.ibatis.submitted.xml_external_ref.InvalidMapper">
     <sql id="personColumnList">
         person_id, person_name
     </sql>
@@ -27,4 +27,4 @@
         <include refid="wrongId" />
         FROM person
     </select>
-</mapper>
+  </mapper>

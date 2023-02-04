@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--
+  <!--
 
        Copyright 2009-2022 the original author or authors.
 
@@ -16,27 +16,27 @@
        limitations under the License.
 
 -->
-<!DOCTYPE configuration
+  <!DOCTYPE configuration
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
-<configuration>
+  <configuration>
 
     <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC">
-                <property name="" value="" />
-            </transactionManager>
-            <dataSource type="UNPOOLED">
-                <property name="driver" value="org.hsqldb.jdbcDriver" />
-                <property name="url" value="jdbc:hsqldb:mem:nestedresulthandler_association" />
-                <property name="username" value="sa" />
-            </dataSource>
-        </environment>
+      <environment id="development">
+        <transactionManager type="JDBC">
+          <property name="" value="" />
+        </transactionManager>
+        <dataSource type="UNPOOLED">
+          <property name="driver" value="org.hsqldb.jdbcDriver" />
+          <property name="url" value="jdbc:hsqldb:mem:nestedresulthandler_association" />
+          <property name="username" value="sa" />
+        </dataSource>
+      </environment>
     </environments>
 
     <mappers>
-        <mapper resource="org/apache/ibatis/submitted/nestedresulthandler_association/AccountRepository.xml" />
+      <mapper resource="org/apache/ibatis/submitted/nestedresulthandler_association/AccountRepository.xml" />
     </mappers>
 
-</configuration>
+  </configuration>

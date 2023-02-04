@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -22,11 +22,10 @@
 
 <mapper namespace="org.apache.ibatis.submitted.foreach.Mapper">
 
-    <select id="getUser" resultType="org.apache.ibatis.submitted.foreach.User">
+  <select id="getUser" resultType="org.apache.ibatis.submitted.foreach.User">
         select * from users
          WHERE id in (
-        <foreach item="item" index="index" collection="friendList"
-          separator="," >
+        <foreach item="item" index="index" collection="friendList" separator=",">
           #{item.id}
         </foreach>
         )
@@ -39,7 +38,7 @@
         <foreach item="item" collection="list" separator="," open="(" close=")">
           #{item.id, jdbcType=NUMERIC}
         </foreach>
-      </where>
+    </where>
   </select>
 
   <select id="countByBestFriend" resultType="_int" parameterType="list">
@@ -49,7 +48,7 @@
         <foreach item="item" collection="list" separator="," open="(" close=")">
           #{item.bestFriend.id, jdbcType=NUMERIC}
         </foreach>
-      </where>
+    </where>
   </select>
 
   <select id="selectWithNullItemCheck" resultType="string">
@@ -57,11 +56,11 @@
       <where>
         id in
         <foreach item="item" collection="list" separator="," open="(" close=")">
-          <if test="item != null">
+        <if test="item != null">
             #{item.id, jdbcType=NUMERIC}
           </if>
-        </foreach>
-      </where>
+      </foreach>
+    </where>
   </select>
 
   <insert id="typoInItemProperty">

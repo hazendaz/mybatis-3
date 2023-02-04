@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       Copyright 2009-2023 the original author or authors.
 
        Licensed under the Apache License, Version 2.0 (the "License");
        you may not use this file except in compliance with the License.
@@ -27,15 +27,14 @@
   </settings>
 
   <typeAliases>
-    <typeAlias alias="LazyFoo"
-      type="org.apache.ibatis.submitted.lazy_deserialize.LazyObjectFoo" />
-    <typeAlias alias="LazyBar"
-      type="org.apache.ibatis.submitted.lazy_deserialize.LazyObjectBar" />
+    <typeAlias alias="LazyFoo" type="org.apache.ibatis.submitted.lazy_deserialize.LazyObjectFoo" />
+    <typeAlias alias="LazyBar" type="org.apache.ibatis.submitted.lazy_deserialize.LazyObjectBar" />
   </typeAliases>
 
   <environments default="test">
     <environment id="test">
-      <transactionManager type="JDBC"></transactionManager>
+      <transactionManager type="JDBC">
+      </transactionManager>
       <dataSource type="UNPOOLED">
         <property name="driver" value="org.hsqldb.jdbcDriver" />
         <property name="url" value="jdbc:hsqldb:mem:lazy_deserialize" />
